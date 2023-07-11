@@ -24,5 +24,8 @@
     "@badeball/cypress-cucumber-preprocessor": "^18.0.1",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "cypress": "^12.17.0"
+  },
+  "devDependencies": {
+    "mysql2": "^3.5.1"
   }
 }

@@ -24,6 +24,53 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+const getValueForKey = (key, jsonObject) => {
+    if (!jsonObject || typeof jsonObject !== "object") {
+      return undefined;
+    }
+  
+    const keys = Object.keys(jsonObject);
+    for(let i = 0; i < keys.length; i++) {
+      if (keys[i] === key ) {
+        return jsonObject[key];
+       //return jsonObject[key as keyof typeof obj]
+      }
+      
+      const value = getValueForKey(key, jsonObject[keys[i]]);
+      if (value) {
+        return value;
+      }
+    }
+    return undefined;
+  }
+
 Cypress.Commands.add('connectToMySql', (sqlquery)=>{
     cy.task("queryDb",sqlquery)
+    console.log('Query Executed Successfully')
 })
+
+/**
+ * @description This function will login to API using credentials provided
+ * @param user credential having userid and pwd
+ * @author InfoOrigin
+ * @CreatedOn Apr 2023
+ * @returns Authorised Token
+ */
+Cypress.Commands.add("LoginWebToken",(webPortalURL, userCredentials, tokenKeyName)=> {
+    cy.request({
+        url: webPortalURL,
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: userCredentials
+    }).then( response => {
+        expect(response.status).to.eq(200)
+        const token = getValueForKey(tokenKeyName, response)
+        Cypress.env('token',token);
+        cy.wrap(token).as('authToken')
+    })
+
+})
+
+

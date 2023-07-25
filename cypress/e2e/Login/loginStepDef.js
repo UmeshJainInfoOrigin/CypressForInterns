@@ -3,17 +3,15 @@ import { Given, When, Then, afterScreenshotHandler } from "@badeball/cypress-cuc
   Given("Actor visit site", ()=> {
     cy.visit('https://example.cypress.io')
     
-   
+
     cy.connectToMySql('SELECT * FROM application').then(count => {
         expect(count).to.have.lengthOf(8);
       });
       cy.log('after my command')
     
-    cy.task(
-        "queryDb",
-        `SELECT * FROM application`
-      ).then(count => {
-        expect(count).to.have.lengthOf(8);
+    cy.task("queryDb",`SELECT * FROM application`).then((abc) => {
+        cy.log(abc)
+        expect(abc).to.have.lengthOf(8);
       });
 
       cy.task('queryDb', `delete from client WHERE ClientID in ("C4", "C5")`).then((result) => {

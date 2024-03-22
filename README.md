@@ -22,3 +22,5 @@ Rough estimate of Total locators:
 150 + locators are utilized for MySpends Automation as of now.
 umesh.jain-at-407125827522	nFJ+2kn5IfALoNOWqOeUqJ8dr41RhewVxgnNGJFvkG8=
 https://eu-north-1.signin.aws.amazon.com/
+wtP1wTdPDChLtQ3nL+dFdCnXgfZusupN8UV/gJf/RlA=
+subodh.budhe@infoorigin.com-at-407125827522

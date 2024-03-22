@@ -1,26 +1,19 @@
-Execution Time:
-Average time is 1-1.5 mins for each scenario
-How many regression so far supported:
-For MyExpenses 2 Release Regression Testing
-For MySpends 1 Release Regression Testing
-Hybrid Mode
-Best Practices Used:
-Using existing Frame work and using Branching strategy merging to master branch
-Whenever required connecting with Dev and functional testing team 
-Deleting the created data when ever new data created
-Learning:
-MySpends is highly integrated application. In MySpends  performed actions on module level & combined it to execute whole test case.
-Existing framework leverage in application like Tandem, MyExpense was closed to 80%.
-How many are S/M/L/XL bifurcation:
-S - 18
-M - 37
-L - 24
-XL - 10
-Total number of hours spend:
-720hrs (3 Months)
-Rough estimate of Total locators:
-150 + locators are utilized for MySpends Automation as of now.
-umesh.jain-at-407125827522	nFJ+2kn5IfALoNOWqOeUqJ8dr41RhewVxgnNGJFvkG8=
-https://eu-north-1.signin.aws.amazon.com/
-wtP1wTdPDChLtQ3nL+dFdCnXgfZusupN8UV/gJf/RlA=
-subodh.budhe@infoorigin.com-at-407125827522
+Feature:BRE Service API Test 
+
+	Scenario:6~API Access Authentication~
+		Given API : 'Auth Token API'
+		When Execute Post API call
+		Then Validate API response HTTP status code as '200'
+		Then Get 'Auth Token' attribute value from API Response and store in Test-Set scope as 'AuthToken'
+
+	Scenario:7~SR Capacity Deployment Rule for EMEA module~
+		Given API : 'BRE Service' using 'BRE Service JSON' Template
+		Given Set 'apimodule' attribute value as 'EMEA' in Test-Set scope
+		When Update baseURL with 'apimodule' key from Test-Set scope
+		When set API attribute 'SR Capacity Deployment Text' value as '10000000 AUD AB/A'
+		When set API attribute 'SR Capacity Deployment Limit' value as '10000000 '
+		When set API attribute 'SR Capacity Deployment Currency' value as 'AUD '
+		When Execute Post API call
+		Then Validate API response HTTP status code as '200'
+		Then 'SR Capacity Deployment Review Flag' attribute of API response should have value as 'red'
+

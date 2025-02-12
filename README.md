@@ -80,3 +80,5 @@ Scripts execution is not reliant on specific browsers, ensuring maximum reach an
 
 
 
+az-dev.infoapps.io
+https://az-dev.infoapps.io/#/download/test-automation-ts

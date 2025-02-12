@@ -83,3 +83,4 @@ Scripts execution is not reliant on specific browsers, ensuring maximum reach an
 az-dev.infoapps.io
 https://az-dev.infoapps.io/#/download/test-automation-ts
 https://dev-infoorigin.infoapps.io/files/test-automation-ts.zip
+https://az-dev.infoapps.io/files/test-automation-ts.zip

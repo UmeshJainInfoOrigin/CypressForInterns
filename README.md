@@ -84,3 +84,4 @@ az-dev.infoapps.io
 https://az-dev.infoapps.io/#/download/test-automation-ts
 https://dev-infoorigin.infoapps.io/files/test-automation-ts.zip
 https://az-dev.infoapps.io/files/test-automation-ts.zip
+https://infoorigin-upgrade.infoapps.io/#/app/ce/portal/49627d88-d440-4c41-bff2-2a7bc9dd5a3b
